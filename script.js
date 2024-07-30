@@ -19,18 +19,55 @@ function operate(operator, num1, num2) {
         case '+':
             return add(num1, num2);
             break;
-        case '-':
+        case '−':
             return subtract(num1, num2);
             break;
-        case '*':
+        case '×':
             return multiply(num1, num2);
             break;
-        case '/':
+        case '÷':
             return divide(num1, num2);
             break;
     }
 }
 
+function populate() {
+    keys.forEach(key => {
+        key.addEventListener('click', () => {
+            displayValue += key.textContent;
+            display.textContent = displayValue;
+        });
+    });
+}
+
+function operation() {
+    operations.forEach(op => {
+        op.addEventListener('click', () => {
+            operator = op.textContent;
+            firstNumber = display.textContent;
+            displayValue = '';
+        });
+    });
+}
+
+function getResult() {
+    equals.addEventListener('click', () => {
+        secondNumber = displayValue;
+        firstNumber = operate(operator, +firstNumber, +secondNumber);
+        display.textContent = firstNumber;
+    });
+}
+
+let displayValue = '';
 let firstNumber;
 let secondNumber;
 let operator;
+
+const keys = document.querySelectorAll('.num');
+const operations = document.querySelectorAll('.operation');
+const equals = document.querySelector('#equals');
+const display = document.querySelector('.display');
+
+populate();
+operation();
+getResult();
