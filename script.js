@@ -43,7 +43,7 @@ const keys = document.querySelectorAll('.num');
 keys.forEach(key => {
     key.addEventListener('click', () => {
         calculator.displayValue += key.textContent;
-        display.textContent = calculator.displayValue;
+        display.textContent = +calculator.displayValue;
     });
 });
 
@@ -77,6 +77,14 @@ equals.addEventListener('click', () => {
         +calculator.secondNumber
     );
     display.textContent = calculator.firstNumber;
+});
+
+const clearButton = document.querySelector('#clear');
+clearButton.addEventListener('click', () => {
+    calculator.firstNumber = null;
+    calculator.secondNumber = null;
+    calculator.displayValue = 0;
+    display.textContent = calculator.displayValue;
 });
 
 const display = document.querySelector('.display');
