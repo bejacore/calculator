@@ -69,20 +69,26 @@ operations.forEach(op => {
 
 const equals = document.querySelector('#equals');
 equals.addEventListener('click', () => {
-    calculator.operatorWaiter = false;
-    calculator.secondNumber = calculator.displayValue;
-    calculator.firstNumber = operate(
+    if (!calculator.operator) {
+        display.textContent = 0;
+    } else {
+        calculator.operatorWaiter = false;
+        calculator.secondNumber = calculator.displayValue;
+        calculator.firstNumber = operate(
         calculator.operator, 
         +calculator.firstNumber, 
         +calculator.secondNumber
-    );
-    display.textContent = calculator.firstNumber;
+        );
+        display.textContent = calculator.firstNumber;
+    }
 });
 
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', () => {
     calculator.firstNumber = null;
     calculator.secondNumber = null;
+    calculator.operator = null;
+    calculator.operatorWaiter = false;
     calculator.displayValue = 0;
     display.textContent = calculator.displayValue;
 });
