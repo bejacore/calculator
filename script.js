@@ -31,43 +31,52 @@ function operate(operator, num1, num2) {
     }
 }
 
-function populate() {
-    keys.forEach(key => {
-        key.addEventListener('click', () => {
-            displayValue += key.textContent;
-            display.textContent = displayValue;
-        });
-    });
-}
-
-function operation() {
-    operations.forEach(op => {
-        op.addEventListener('click', () => {
-            operator = op.textContent;
-            firstNumber = display.textContent;
-            displayValue = '';
-        });
-    });
-}
-
-function getResult() {
-    equals.addEventListener('click', () => {
-        secondNumber = displayValue;
-        firstNumber = operate(operator, +firstNumber, +secondNumber);
-        display.textContent = firstNumber;
-    });
-}
-
-let displayValue = '';
-let firstNumber;
-let secondNumber;
-let operator;
+let calculator = {
+    displayValue: '',
+    firstNumber: null,
+    secondNumber: null,
+    operator: null,
+    operatorWaiter: false,
+};
 
 const keys = document.querySelectorAll('.num');
-const operations = document.querySelectorAll('.operation');
-const equals = document.querySelector('#equals');
-const display = document.querySelector('.display');
+keys.forEach(key => {
+    key.addEventListener('click', () => {
+        calculator.displayValue += key.textContent;
+        display.textContent = calculator.displayValue;
+    });
+});
 
-populate();
-operation();
-getResult();
+const operations = document.querySelectorAll('.operation');
+operations.forEach(op => {
+    op.addEventListener('click', () => {
+        calculator.operator = op.textContent;
+        if (calculator.operatorWaiter === false) {
+            calculator.operatorWaiter = true;
+            calculator.firstNumber = display.textContent;
+        } else {
+            calculator.secondNumber = calculator.displayValue;
+            calculator.firstNumber = operate(
+                calculator.operator,
+                +calculator.firstNumber,
+                +calculator.secondNumber,
+            );
+            display.textContent = calculator.firstNumber;
+        }
+        calculator.displayValue = '';
+    });
+});
+
+const equals = document.querySelector('#equals');
+equals.addEventListener('click', () => {
+    calculator.operatorWaiter = false;
+    calculator.secondNumber = calculator.displayValue;
+    calculator.firstNumber = operate(
+        calculator.operator, 
+        +calculator.firstNumber, 
+        +calculator.secondNumber
+    );
+    display.textContent = calculator.firstNumber;
+});
+
+const display = document.querySelector('.display');
