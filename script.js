@@ -50,10 +50,10 @@ keys.forEach(key => {
 const operations = document.querySelectorAll('.operation');
 operations.forEach(op => {
     op.addEventListener('click', () => {
-        calculator.operator = op.textContent;
-        if (calculator.operatorWaiter === false) {
+        if (!calculator.operatorWaiter) {
             calculator.operatorWaiter = true;
             calculator.firstNumber = display.textContent;
+            calculator.operator = op.textContent;
         } else {
             calculator.secondNumber = calculator.displayValue;
             calculator.firstNumber = operate(
@@ -63,6 +63,7 @@ operations.forEach(op => {
             );
             display.textContent = calculator.firstNumber;
         }
+        calculator.operator = op.textContent;
         calculator.displayValue = '';
     });
 });
@@ -75,9 +76,9 @@ equals.addEventListener('click', () => {
         calculator.operatorWaiter = false;
         calculator.secondNumber = calculator.displayValue;
         calculator.firstNumber = operate(
-        calculator.operator, 
-        +calculator.firstNumber, 
-        +calculator.secondNumber
+            calculator.operator, 
+            +calculator.firstNumber, 
+            +calculator.secondNumber
         );
         display.textContent = calculator.firstNumber;
     }
