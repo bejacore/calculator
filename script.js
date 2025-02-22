@@ -63,7 +63,6 @@ operations.forEach(op => {
             );
             display.textContent = calculator.firstNumber;
         }
-        // calculator.operator = op.textContent;
         calculator.displayValue = '';
     });
 });
@@ -99,5 +98,11 @@ percentage.addEventListener('click', () => {
     calculator.displayValue = +calculator.displayValue/100;
     display.textContent = calculator.displayValue;
 });
+
+const plusMinus = document.querySelector('#plus-minus');
+plusMinus.addEventListener('click', () => {
+    calculator.displayValue = -1 * +calculator.displayValue;
+    display.textContent = calculator.displayValue;
+})
 
 const display = document.querySelector('.display');
