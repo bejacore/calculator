@@ -63,7 +63,7 @@ operations.forEach(op => {
             );
             display.textContent = calculator.firstNumber;
         }
-        calculator.operator = op.textContent;
+        // calculator.operator = op.textContent;
         calculator.displayValue = '';
     });
 });
@@ -91,6 +91,12 @@ clearButton.addEventListener('click', () => {
     calculator.operator = null;
     calculator.operatorWaiter = false;
     calculator.displayValue = 0;
+    display.textContent = calculator.displayValue;
+});
+
+const percentage = document.querySelector('#percentage');
+percentage.addEventListener('click', () => {
+    calculator.displayValue = +calculator.displayValue/100;
     display.textContent = calculator.displayValue;
 });
 
