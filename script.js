@@ -64,7 +64,7 @@ operations.forEach(op => {
             calculator.firstNumber = display.textContent;
             calculator.operator = op.textContent;
         } else {
-            calculator.secondNumber = calculator.displayValue;
+            calculator.secondNumber = +calculator.displayValue;
             calculator.firstNumber = operate(
                 calculator.operator,
                 +calculator.firstNumber,
@@ -82,7 +82,7 @@ equals.addEventListener('click', () => {
         display.textContent = 0;
     } else {
         calculator.operatorWaiter = false;
-        calculator.secondNumber = calculator.displayValue;
+        calculator.secondNumber = +calculator.displayValue;
         calculator.firstNumber = operate(
             calculator.operator, 
             +calculator.firstNumber, 
@@ -112,6 +112,13 @@ const plusMinus = document.querySelector('#plus-minus');
 plusMinus.addEventListener('click', () => {
     calculator.displayValue = -1 * +calculator.displayValue;
     display.textContent = calculator.displayValue;
-})
+});
+
+const comma = document.querySelector('#comma');
+comma.addEventListener('click', () => {
+    if (calculator.displayValue.includes('.')) return;
+    calculator.displayValue += comma.textContent;
+    display.textContent = calculator.displayValue;
+});
 
 const display = document.querySelector('.display');
