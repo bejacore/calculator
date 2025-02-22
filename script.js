@@ -31,6 +31,15 @@ function operate(operator, num1, num2) {
     }
 }
 
+function roundNumber(num) {
+    const roundLength = 10000000
+    if (!Number.isInteger(num)) {
+        return Math.round((num + Number.EPSILON) * roundLength) / roundLength;
+    }
+
+    return num;
+}
+
 let calculator = {
     displayValue: '',
     firstNumber: null,
@@ -61,7 +70,7 @@ operations.forEach(op => {
                 +calculator.firstNumber,
                 +calculator.secondNumber,
             );
-            display.textContent = calculator.firstNumber;
+            display.textContent = roundNumber(calculator.firstNumber);
         }
         calculator.displayValue = '';
     });
@@ -79,7 +88,7 @@ equals.addEventListener('click', () => {
             +calculator.firstNumber, 
             +calculator.secondNumber
         );
-        display.textContent = calculator.firstNumber;
+        display.textContent = roundNumber(calculator.firstNumber);
     }
 });
 
