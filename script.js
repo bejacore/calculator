@@ -26,6 +26,9 @@ function operate(operator, num1, num2) {
             return multiply(num1, num2);
             break;
         case '÷':
+            if (num2 === 0) {
+                return 'Ey, you can\'t do that!';
+            }
             return divide(num1, num2);
             break;
     }
