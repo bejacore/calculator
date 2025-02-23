@@ -70,6 +70,7 @@ operations.forEach(op => {
                 +calculator.firstNumber,
                 +calculator.secondNumber,
             );
+            calculator.operator = op.textContent;
             display.textContent = roundNumber(calculator.firstNumber);
         }
         calculator.displayValue = '';
