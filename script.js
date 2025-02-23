@@ -1,17 +1,17 @@
 function add(num1, num2) {
-    return num1 + num2;
+    return roundNumber(num1 + num2);
 }
 
 function subtract(num1, num2) {
-    return num1 - num2;
+    return roundNumber(num1 - num2);
 }
 
 function multiply(num1, num2) {
-    return num1 * num2;
+    return roundNumber(num1 * num2);
 }
 
 function divide(num1, num2) {
-    return num1 / num2;
+    return roundNumber(num1 / num2);
 }
 
 function operate(operator, num1, num2) {
@@ -74,7 +74,7 @@ operations.forEach(op => {
                 +calculator.secondNumber,
             );
             calculator.operator = op.textContent;
-            display.textContent = roundNumber(calculator.firstNumber);
+            display.textContent = calculator.firstNumber;
         }
         calculator.displayValue = '';
     });
@@ -92,7 +92,7 @@ equals.addEventListener('click', () => {
             +calculator.firstNumber, 
             +calculator.secondNumber
         );
-        display.textContent = roundNumber(calculator.firstNumber);
+        display.textContent = calculator.firstNumber;
     }
 });
 
