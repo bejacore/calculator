@@ -87,6 +87,7 @@ equals.addEventListener('click', () => {
     } else {
         calculator.operatorWaiter = false;
         calculator.secondNumber = +calculator.displayValue;
+        calculator.displayValue = '';
         calculator.firstNumber = operate(
             calculator.operator, 
             +calculator.firstNumber, 
