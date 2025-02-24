@@ -54,8 +54,13 @@ let calculator = {
 const keys = document.querySelectorAll('.num');
 keys.forEach(key => {
     key.addEventListener('click', () => {
-        calculator.displayValue += key.textContent;
-        display.textContent = +calculator.displayValue;
+        if (display.textContent === '0' && key.textContent === '0'){
+            display.textContent = '0';
+        }
+        else {
+            calculator.displayValue += key.textContent;
+            display.textContent = calculator.displayValue;
+        }
     });
 });
 
