@@ -122,8 +122,13 @@ plusMinus.addEventListener('click', () => {
 const comma = document.querySelector('#comma');
 comma.addEventListener('click', () => {
     if (calculator.displayValue.includes('.')) return;
-    calculator.displayValue += comma.textContent;
-    display.textContent = calculator.displayValue;
+    if (calculator.displayValue === '') {
+        calculator.displayValue = '0.';
+        display.textContent = calculator.displayValue;
+    } else {
+        calculator.displayValue += comma.textContent;
+        display.textContent = calculator.displayValue;
+    }
 });
 
 const display = document.querySelector('.display');
