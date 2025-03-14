@@ -56,8 +56,7 @@ keys.forEach(key => {
     key.addEventListener('click', () => {
         if (display.textContent === '0' && key.textContent === '0'){
             display.textContent = '0';
-        }
-        else {
+        } else {
             calculator.displayValue += key.textContent;
             display.textContent = calculator.displayValue;
         }
@@ -92,7 +91,6 @@ equals.addEventListener('click', () => {
     } else {
         calculator.operatorWaiter = false;
         calculator.secondNumber = +calculator.displayValue;
-        calculator.displayValue = '';
         calculator.firstNumber = operate(
             calculator.operator, 
             +calculator.firstNumber, 
@@ -120,7 +118,7 @@ percentage.addEventListener('click', () => {
 
 const plusMinus = document.querySelector('#plus-minus');
 plusMinus.addEventListener('click', () => {
-    calculator.displayValue = -1 * +calculator.displayValue;
+    calculator.displayValue = -1 * display.textContent;
     display.textContent = calculator.displayValue;
 });
 
