@@ -106,8 +106,8 @@ clearButton.addEventListener('click', () => {
     calculator.secondNumber = null;
     calculator.operator = null;
     calculator.operatorWaiter = false;
-    calculator.displayValue = 0;
-    display.textContent = calculator.displayValue;
+    calculator.displayValue = '';
+    display.textContent = '0';
 });
 
 const percentage = document.querySelector('#percentage');
