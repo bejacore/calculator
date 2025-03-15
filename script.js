@@ -139,9 +139,14 @@ const display = document.querySelector('.display');
 
 document.addEventListener('keyup', event => {
     if (!isNaN(+event.key)) {
-        calculator.displayValue += event.key;
-        display.textContent = calculator.displayValue;
+        if (display.textContent === '0' && event.key === '0'){
+            display.textContent = '0';
+        } else {
+            calculator.displayValue += event.key;
+            display.textContent = calculator.displayValue;
+        }
     }
+    
     switch (event.key) {
         case '+':
         case '-':
