@@ -141,7 +141,7 @@ document.addEventListener('keyup', event => {
         calculator.displayValue += event.key;
         display.textContent = calculator.displayValue;
     }
-    
+
     switch (event.key) {
         case '+':
         case '-':
@@ -163,5 +163,20 @@ document.addEventListener('keyup', event => {
             }
             calculator.displayValue = '';
             break;
+        
+        case '=':
+        case 'Enter':
+            if (!calculator.operator) {
+                display.textContent = 0;
+            } else {
+                calculator.operatorWaiter = false;
+                calculator.secondNumber = +calculator.displayValue;
+                calculator.firstNumber = operate(
+                    calculator.operator, 
+                    +calculator.firstNumber, 
+                    +calculator.secondNumber
+                );
+                display.textContent = calculator.firstNumber;
+            }
     }
 });
