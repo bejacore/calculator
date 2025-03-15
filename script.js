@@ -96,6 +96,7 @@ equals.addEventListener('click', () => {
             +calculator.firstNumber, 
             +calculator.secondNumber
         );
+        calculator.displayValue = '';
         display.textContent = calculator.firstNumber;
     }
 });
@@ -176,6 +177,7 @@ document.addEventListener('keyup', event => {
                     +calculator.firstNumber, 
                     +calculator.secondNumber
                 );
+                calculator.displayValue = '';
                 display.textContent = calculator.firstNumber;
             }
             break;
@@ -193,11 +195,11 @@ document.addEventListener('keyup', event => {
         
         case 'Backspace':
             calculator.displayValue  = `${calculator.displayValue}`.slice(0, -1);
-            if (calculator.displayValue === '' || !calculator.operatorWaiter) {
+            if (calculator.displayValue === '') {
                 display.textContent = 0;
-            } else {
-                display.textContent = calculator.displayValue;
+                return;
             }
+            display.textContent = calculator.displayValue;
             break; 
     }
 });
