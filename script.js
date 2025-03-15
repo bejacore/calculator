@@ -69,7 +69,7 @@ operations.forEach(op => {
         if (!calculator.operatorWaiter) {
             calculator.operatorWaiter = true;
             calculator.firstNumber = display.textContent;
-            calculator.operator = event.key;
+            calculator.operator = op.textContent;
         } else {
             calculator.secondNumber = +calculator.displayValue;
             calculator.firstNumber = operate(
@@ -141,7 +141,7 @@ document.addEventListener('keyup', event => {
         calculator.displayValue += event.key;
         display.textContent = calculator.displayValue;
     }
-
+    
     switch (event.key) {
         case '+':
         case '-':
@@ -162,5 +162,6 @@ document.addEventListener('keyup', event => {
                 display.textContent = calculator.firstNumber;
             }
             calculator.displayValue = '';
+            break;
     }
 });
