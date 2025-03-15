@@ -113,7 +113,7 @@ clearButton.addEventListener('click', () => {
 
 const percentage = document.querySelector('#percentage');
 percentage.addEventListener('click', () => {
-    calculator.displayValue = +calculator.displayValue/100;
+    calculator.displayValue = `${+calculator.displayValue/100}`;
     display.textContent = calculator.displayValue;
 });
 
@@ -182,7 +182,7 @@ document.addEventListener('keyup', event => {
             break;
 
         case '%':
-            calculator.displayValue = +calculator.displayValue/100;
+            calculator.displayValue = `${+calculator.displayValue/100}`;
             display.textContent = calculator.displayValue;
 
         case '.':
