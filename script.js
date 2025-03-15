@@ -190,5 +190,14 @@ document.addEventListener('keyup', event => {
                 display.textContent = calculator.displayValue;
             }
             break;
+        
+        case 'Backspace':
+            calculator.displayValue  = `${calculator.displayValue}`.slice(0, -1);
+            if (calculator.displayValue === '' || !calculator.operatorWaiter) {
+                display.textContent = 0;
+            } else {
+                display.textContent = calculator.displayValue;
+            }
+            break; 
     }
 });
