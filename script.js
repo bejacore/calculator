@@ -146,7 +146,7 @@ document.addEventListener('keyup', event => {
             display.textContent = calculator.displayValue;
         }
     }
-    
+
     switch (event.key) {
         case '+':
         case '-':
@@ -208,6 +208,15 @@ document.addEventListener('keyup', event => {
                 return;
             }
             display.textContent = calculator.displayValue;
-            break; 
+            break;
+        
+        case 'Escape':
+            calculator.firstNumber = null;
+            calculator.secondNumber = null;
+            calculator.operator = null;
+            calculator.operatorWaiter = false;
+            calculator.displayValue = '';
+            display.textContent = '0';
+            break;
     }
 });
