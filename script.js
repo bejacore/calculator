@@ -142,7 +142,6 @@ document.addEventListener('keyup', event => {
         calculator.displayValue += event.key;
         display.textContent = calculator.displayValue;
     }
-
     switch (event.key) {
         case '+':
         case '-':
@@ -181,6 +180,10 @@ document.addEventListener('keyup', event => {
                 display.textContent = calculator.firstNumber;
             }
             break;
+
+        case '%':
+            calculator.displayValue = +calculator.displayValue/100;
+            display.textContent = calculator.displayValue;
 
         case '.':
             if (calculator.displayValue.includes('.')) return;
