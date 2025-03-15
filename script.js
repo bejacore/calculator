@@ -69,7 +69,7 @@ operations.forEach(op => {
         if (!calculator.operatorWaiter) {
             calculator.operatorWaiter = true;
             calculator.firstNumber = display.textContent;
-            calculator.operator = op.textContent;
+            calculator.operator = event.key;
         } else {
             calculator.secondNumber = +calculator.displayValue;
             calculator.firstNumber = operate(
@@ -140,5 +140,27 @@ document.addEventListener('keyup', event => {
     if (!isNaN(+event.key)) {
         calculator.displayValue += event.key;
         display.textContent = calculator.displayValue;
+    }
+
+    switch (event.key) {
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+            if (!calculator.operatorWaiter) {
+                calculator.operatorWaiter = true;
+                calculator.firstNumber = display.textContent;
+                calculator.operator = event.key;
+            } else {
+                calculator.secondNumber = +calculator.displayValue;
+                calculator.firstNumber = operate(
+                    calculator.operator,
+                    +calculator.firstNumber,
+                    +calculator.secondNumber,
+                );
+                calculator.operator = event.key;
+                display.textContent = calculator.firstNumber;
+            }
+            calculator.displayValue = '';
     }
 });
