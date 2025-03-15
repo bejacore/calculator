@@ -178,5 +178,17 @@ document.addEventListener('keyup', event => {
                 );
                 display.textContent = calculator.firstNumber;
             }
+            break;
+
+        case '.':
+            if (calculator.displayValue.includes('.')) return;
+            if (calculator.displayValue === '') {
+                calculator.displayValue = '0.';
+                display.textContent = calculator.displayValue;
+            } else {
+                calculator.displayValue += event.key;
+                display.textContent = calculator.displayValue;
+            }
+            break;
     }
 });
