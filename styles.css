@@ -7,3 +7,9 @@ html {
 *::after {
     box-sizing: inherit;
 }
+
+button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
