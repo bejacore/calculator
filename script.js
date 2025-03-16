@@ -27,7 +27,7 @@ function operate(operator, num1, num2) {
             break;
         case '/':
             if (num2 === 0) {
-                return 'Ey, you can\'t do that!';
+                return 'Hmm, nop';
             }
             return divide(num1, num2);
             break;
