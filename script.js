@@ -54,6 +54,8 @@ let calculator = {
 const keys = document.querySelectorAll('.num');
 keys.forEach(key => {
     key.addEventListener('click', () => {
+        const displayMaxLength = 8;
+        if (calculator.displayValue.length === displayMaxLength) return;
         if (display.textContent === '0' && key.textContent === '0'){
             display.textContent = '0';
         } else {
@@ -138,6 +140,8 @@ comma.addEventListener('click', () => {
 const display = document.querySelector('.display');
 
 document.addEventListener('keyup', event => {
+    const displayMaxLength = 8;
+    if (calculator.displayValue.length === displayMaxLength) return;
     if (!isNaN(+event.key)) {
         if (display.textContent === '0' && event.key === '0'){
             display.textContent = '0';
