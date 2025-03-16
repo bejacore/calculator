@@ -35,7 +35,7 @@ function operate(operator, num1, num2) {
 }
 
 function roundNumber(num) {
-    const roundLength = 10000000
+    const roundLength = 1000000
     if (!Number.isInteger(num)) {
         return Math.round((num + Number.EPSILON) * roundLength) / roundLength;
     }
