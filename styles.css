@@ -30,6 +30,9 @@ body {
     flex-wrap: wrap;
     padding: 20px;
     width: 340px;
+    background-color: #000;
+    gap: 15px;
+    border-radius: 20px;
 }
 
 .display {
