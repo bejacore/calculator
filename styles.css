@@ -39,6 +39,12 @@ body {
     font-size: 60px;
 }
 
+.keys {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
 button {
     width: 70px;
     height: 70px;
