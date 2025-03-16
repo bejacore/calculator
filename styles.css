@@ -74,4 +74,5 @@ button {
     font-size: 25px;
     border-style: none;
     color:#fff;
+    cursor: pointer;
 }
