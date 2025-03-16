@@ -121,6 +121,7 @@ percentage.addEventListener('click', () => {
 
 const plusMinus = document.querySelector('#plus-minus');
 plusMinus.addEventListener('click', () => {
+    if (display.textContent === '0') return;
     calculator.displayValue = -1 * display.textContent;
     display.textContent = calculator.displayValue;
 });
