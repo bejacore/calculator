@@ -76,3 +76,18 @@ button {
     color:#fff;
     cursor: pointer;
 }
+
+.main:active {
+    background-color: #202027aa;
+}
+
+.operation:active,
+#equals:active {
+    background-color: #F96E2Aaa;
+}
+
+#clear:active, 
+#plus-minus:active,
+#percentage:active {
+    background-color: #75757caa;
+}
