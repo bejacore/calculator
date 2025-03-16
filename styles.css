@@ -52,7 +52,8 @@ body {
     gap: 5px;
 }
 
-.main {
+.main, 
+.helper-btn {
     background-color: #202027;
 }
 
@@ -90,4 +91,8 @@ button {
 #plus-minus:active,
 #percentage:active {
     background-color: #75757caa;
+}
+
+.helper-btn {
+    cursor: default;
 }
