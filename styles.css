@@ -8,6 +8,17 @@ html {
     box-sizing: inherit;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .calculator {
     display: flex;
     flex-wrap: wrap;
